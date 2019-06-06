@@ -5,9 +5,11 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @UniqueEntity(fields="email", message="Email already taken")
  * @ORM\Table(name="user")
  */
 class User implements UserInterface
@@ -34,11 +36,21 @@ class User implements UserInterface
 
 
     const TITLE_MR = 'mr';
+    const TITLE_MRS = 'mrs';
     const TITLE_MS = 'ms';
 
     const TITLES = [
         self::TITLE_MR,
+        self::TITLE_MRS,
         self::TITLE_MS,
+    ];
+
+    const LOCALE_EN = 'en';
+    const LOCALE_DE = 'de';
+
+    const LOCALES = [
+        self::LOCALE_EN,
+        self::LOCALE_DE,
     ];
 
 
@@ -88,6 +100,7 @@ class User implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+
     private $plainPassword;
 
 
