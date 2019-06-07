@@ -27,4 +27,8 @@ create a new repository with the current code base. commit your changes and send
 
 
 ## Further improvements
-- Filled by you
+- Migrate to FOSUserBundle v2.1.2 for easier user management and faster implementation of basic user needs
+- Add possibility to create favorite movies list per user
+- Create Movies Repository with methods for filtering data (genre selection, most favorited, etc)
+- Add movie search functionality via Elasticsearch or Redis for quick results
+- Implement multiple locales for app
