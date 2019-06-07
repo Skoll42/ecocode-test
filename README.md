@@ -32,3 +32,4 @@ create a new repository with the current code base. commit your changes and send
 - Create Movies Repository with methods for filtering data (genre selection, most favorited, etc)
 - Add movie search functionality via Elasticsearch or Redis for quick results
 - Implement multiple locales for app
+- Unit testing via PHPUnit
