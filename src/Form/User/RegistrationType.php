@@ -6,6 +6,7 @@ use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -25,11 +26,7 @@ class RegistrationType extends AbstractType
         $builder
             ->add(
                 'locale',
-                ChoiceType::class,
-                [
-                    'required' => true,
-                    'choices'  => $this->getLocaleChoices(),
-                ]
+                HiddenType::class
             )
             ->add(
                 'title',
@@ -85,8 +82,8 @@ class RegistrationType extends AbstractType
         $resolver->setDefaults(
             [
                 'data_class' => User::class,
-                'locale'     => 'en',
-                'title'      => 'mr'
+                'title'      => 'mr',
+                'locale'     => 'en'
             ]
         );
     }
@@ -97,14 +94,6 @@ class RegistrationType extends AbstractType
             'Mr'  => User::TITLE_MR,
             'Mrs' => User::TITLE_MRS,
             'Ms'  => User::TITLE_MS,
-        ];
-    }
-
-    private function getLocaleChoices()
-    {
-        return [
-            'English' => User::LOCALE_EN,
-            'Deutsch' => User::LOCALE_DE,
         ];
     }
 }

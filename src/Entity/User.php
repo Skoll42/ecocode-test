@@ -45,15 +45,6 @@ class User implements UserInterface
         self::TITLE_MS,
     ];
 
-    const LOCALE_EN = 'en';
-    const LOCALE_DE = 'de';
-
-    const LOCALES = [
-        self::LOCALE_EN,
-        self::LOCALE_DE,
-    ];
-
-
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -134,7 +125,7 @@ class User implements UserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="locale", type="string")
+     * @ORM\Column(name="locale", type="string", nullable=true)
      */
     private $locale;
 
